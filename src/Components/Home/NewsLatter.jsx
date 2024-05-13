@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
 
 const NewsletterSignup = () => {
     const [email, setEmail] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(true);
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
     const handleChange = (e) => {
         setEmail(e.target.value);
@@ -18,6 +21,7 @@ const NewsletterSignup = () => {
         console.log('Email submitted:', email);
         setEmail('');
         setIsValidEmail(true);
+        setShowSuccessAlert(true);
     };
 
     return (
@@ -49,6 +53,11 @@ const NewsletterSignup = () => {
                         </button>
                     </form>
                     {!isValidEmail && <p className="text-sm text-red-500 mt-2">Please enter a valid email address.</p>}
+                    {showSuccessAlert && (
+                        <Alert severity="success" icon={<CheckIcon fontSize="inherit" />}>
+                            Successfully Submitted
+                        </Alert>
+                    )}
                     <p className="text-sm mt-2">
                         We value your privacy. Your email address will only be used to send you our newsletter and information about our services. You can unsubscribe at any time.
                     </p>
