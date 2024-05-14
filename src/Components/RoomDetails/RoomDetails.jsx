@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 const RoomDetails = () => {
   const details = useLoaderData();
   const {
-    _id,
     price_per_night,
     room_size,
     room_images,
@@ -15,7 +14,8 @@ const RoomDetails = () => {
   } = details;
 
   return (
-  <div className="card-body ">
+ <div className="flex ard-body hero min-h-screen">
+   <div className="card-body">
       <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row ">
         <img src={representative_image} className="max-w-sm rounded-lg shadow-2xl" alt={title} />
@@ -26,7 +26,6 @@ const RoomDetails = () => {
           <p>Price per night: {price_per_night}</p>
           <p>Room size: {room_size}</p>
           {special_offers && <p>Special offers: {special_offers}</p>}
-          <button className="btn btn-primary">Book Now</button>
         </div>
       </div>
     </div>
@@ -37,6 +36,7 @@ const RoomDetails = () => {
         ))}
       </div>
   </div>
+ </div>
   );
 };
 
