@@ -15,6 +15,7 @@ import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import Booking from './Components/Booking/Booking';
 import MyBooking from './Components/MyBooking/MyBooking';
+import Update from './Components/MyBooking/Update';
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,12 @@ const router = createBrowserRouter([
       {
         path: '/bookings',
         element:<MyBooking></MyBooking> 
-      }
+      }, 
+      {
+        path: 'update/:id', 
+        element: <Update></Update>, 
+        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+       }
     ]
   },
 ]);

@@ -1,8 +1,9 @@
 import { MdOutlineCancel } from "react-icons/md";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { GrDocumentUpdate } from "react-icons/gr";
+import { Link } from "react-router-dom";
 const BookingRow = ({book}) => {
-     const {customerName , img ,  email , price , date} = book; 
+     const {_id ,customerName , img ,  email , price , date} = book; 
      console.log(book)
     return (
         <tr>
@@ -22,10 +23,10 @@ const BookingRow = ({book}) => {
         <td>{price}</td>
         <td>{date}</td>
         <th>
-          <button className="btn btn-ghost text-3xl"><MdOutlinePostAdd /></button>
+         <Link to='/post'> <button className="btn btn-ghost text-3xl"><MdOutlinePostAdd /></button></Link>
         </th>
         <th>
-          <button className="btn btn-ghost text-2xl"><GrDocumentUpdate/></button>
+          <Link to={`/update/${_id}`}><button className="btn btn-ghost text-2xl"><GrDocumentUpdate/></button></Link>
         </th>
         <th>
           <button className="btn btn-ghost text-3xl"><MdOutlineCancel /></button>
