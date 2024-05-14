@@ -5,7 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Booking = () => {
     const loader = useLoaderData();
     const {user} = useContext(AuthContext); 
-    const { title, price_per_night} = loader;
+    const { title, price_per_night , representative_image} = loader;
 
     const handleBooking = e => {
         e.preventDefault(); 
@@ -18,9 +18,11 @@ const Booking = () => {
         const booking = {
 
             customerName : name, 
+            img: representative_image,
             email: email, 
             date: date , 
             price: price
+            
         }
         console.log(booking)
 
