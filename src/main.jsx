@@ -14,6 +14,7 @@ import AuthProvider from './Provider/AuthProvider';
 import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import Booking from './Components/Booking/Booking';
+import MyBooking from './Components/MyBooking/MyBooking';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         path: 'room/:id',
         element: <Booking></Booking>,
         loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+      }, 
+      {
+        path: '/bookings',
+        element:<MyBooking></MyBooking> 
       }
     ]
   },
