@@ -6,7 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Update = () => {
   const navigate = useNavigate();
   const dateData = useLoaderData();
-  const { _id, date } = dateData; // Assuming dateFrom and dateTo are available
+  const { _id } = dateData; // Assuming dateFrom and dateTo are available
 
   const { user } = useContext(AuthContext);
 
@@ -20,7 +20,7 @@ const Update = () => {
       date: date
     };
 
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`http://localhost:5000/bookings/${_id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(order),

@@ -6,15 +6,17 @@ const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [books, setBooks] = useState([]);
 
-    const url = `http://localhost:5000/bookings?email=${user.
-        email}`
+    const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
     useEffect(() => {
-
         fetch(url)
             .then(res => res.json())
             .then(data => setBooks(data))
-    }, [])
+            .catch(error => console.error('Error fetching bookings:', error));
+    }, []);
+
+
+
     return (
         <div className="overflow-x-auto">
             <table className="table font-bold">
@@ -31,9 +33,14 @@ const MyBooking = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        books.map(book => <BookingRow key={book._id} book={book}></BookingRow>)
-                    }
+                    {books.map(book => (
+                        <BookingRow 
+                            key={book._id} 
+                            book={book} 
+                            books={books} 
+                            setBooks={setBooks}
+                        />
+                    ))}
                 </tbody>
             </table>
         </div>
