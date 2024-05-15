@@ -13,9 +13,9 @@ const MyBooking = () => {
             .then(res => res.json())
             .then(data => setBooks(data))
             .catch(error => console.error('Error fetching bookings:', error));
-    }, []);
+    }, [url]);
 
-
+console.log(books);
 
     return (
         <div className="overflow-x-auto">
