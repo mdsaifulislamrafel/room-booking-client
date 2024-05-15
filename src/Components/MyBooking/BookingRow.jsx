@@ -26,7 +26,7 @@ const BookingRow = ({ book, books, setBooks }) => {
       }).then((result) => {
         // Proceed with deletion if confirmed
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/bookings/${_id}`, {
+          fetch(`https://hotel-room-server-pi.vercel.app/bookings/${_id}`, {
             method: 'DELETE'
           })
           .then(res => {

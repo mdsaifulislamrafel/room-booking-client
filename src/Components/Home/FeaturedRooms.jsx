@@ -5,7 +5,7 @@ const FeaturedRooms = () => {
     const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/rooms')
+        fetch('https://hotel-room-server-pi.vercel.app/rooms')
             .then(response => response.json())
             .then(data => {
                 setRooms(data);

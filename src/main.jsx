@@ -20,6 +20,7 @@ import PrivateRoute from './Provider/PrivatRoute';
 import AvailableRoom from './Components/Home/AvailableRoom';
 import Contact from './Components/Contact/Contact';
 import About from './Components/About/About';
+import Post from './Components/Post/Post';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: '/rooms/:id',
         element: <PrivateRoute><RoomDetails></RoomDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({ params }) => fetch(`https://hotel-room-server-pi.vercel.app/rooms/${params.id}`)
       },
       {
         path: '/login',
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       {
         path: 'room/:id',
         element: <PrivateRoute><Booking></Booking></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({ params }) => fetch(`https://hotel-room-server-pi.vercel.app/rooms/${params.id}`)
       },
       {
         path: '/bookings',
@@ -56,12 +57,12 @@ const router = createBrowserRouter([
       {
         path: 'bookings/:id',
         element: <PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+        loader: ({ params }) => fetch(`https://hotel-room-server-pi.vercel.app/bookings/${params.id}`)
       },
       {
         path: '/rooms',
         element: <PrivateRoute><AvailableRoom /></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/unavailable/Available')
+        loader: () => fetch('https://hotel-room-server-pi.vercel.app/unavailable/Available')
       }, 
       {
         path: '/contact', 
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: '/about', 
         element: <About></About>
+      }, 
+      {
+        path: '/post', 
+        element: <Post></Post>
       }
     ]
   },

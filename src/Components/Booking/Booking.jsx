@@ -10,7 +10,7 @@ const Booking = () => {
     console.log(loader);
 
     const handleUnavailable = (id) => {
-        fetch(`http://localhost:5000/rooms/${_id}`, {
+        fetch(`https://hotel-room-server-pi.vercel.app/rooms/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +54,7 @@ const Booking = () => {
         };
         console.log(booking);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://hotel-room-server-pi.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
