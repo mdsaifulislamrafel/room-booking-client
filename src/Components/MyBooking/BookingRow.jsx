@@ -97,7 +97,7 @@ const BookingRow = ({ book, books, setBooks }) => {
       <td>{price}</td>
       <td>{date}</td>
       <th>
-        <Link to="/post">
+        <Link to={`/post/:${id}`}>
           <button className="btn btn-ghost text-3xl">
             <MdOutlinePostAdd />
           </button>

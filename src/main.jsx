@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         element: <About></About>
       },
       {
-        path: '/post',
+        path: '/post/:id',
         element: <Post></Post>
       }
     ]

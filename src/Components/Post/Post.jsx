@@ -1,15 +1,17 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useParams } from 'react-router-dom';
 
 const Post = () => {
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const { user } = useContext(AuthContext);
-  
+  const id = useParams();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const review = { username: user?.displayName, rating, comment };
+    const review = { username: user?.displayName, rating, comment ,id};
     try {
       const response = await fetch('http://localhost:5000/reviews', {
         method: 'POST',
