@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Booking = () => {
     const loader = useLoaderData();
     const { user } = useContext(AuthContext);
-    const { _id, title, price_per_night, representative_image, availability} = loader;
+    const { _id, title, price_per_night, representative_image, availability } = loader;
     console.log(loader);
 
     const handleUnavailable = (id) => {
@@ -71,7 +71,7 @@ const Booking = () => {
                         timer: 1500 // milliseconds
                     });
                 }
-        });
+            });
     }
 
 

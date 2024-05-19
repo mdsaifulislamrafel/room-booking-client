@@ -1,8 +1,11 @@
-
+import { Helmet } from 'react-helmet-async';
 const About = () => {
     return (
-        <section className=" text-black">
+        <section data-aos="fade-up" data-aos-duration="1000" className=" text-black">
             <div className="container px-4 py-16 mx-auto space-y-8 lg:max-w-3xl">
+                <Helmet>
+                    <title>About</title>
+                </Helmet>
                 <h2 className="text-2xl font-bold md:text-4xl">Timeline</h2>
                 <div className="space-y-8">
                     <div>

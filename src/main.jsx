@@ -21,6 +21,7 @@ import AvailableRoom from './Components/Home/AvailableRoom';
 import Contact from './Components/Contact/Contact';
 import About from './Components/About/About';
 import Post from './Components/Post/Post';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -63,26 +64,29 @@ const router = createBrowserRouter([
         path: '/rooms',
         element: <PrivateRoute><AvailableRoom /></PrivateRoute>,
         loader: () => fetch('https://hotel-room-server-pi.vercel.app/unavailable/Available')
-      }, 
+      },
       {
-        path: '/contact', 
+        path: '/contact',
         element: <Contact></Contact>
-      }, 
+      },
       {
-        path: '/about', 
+        path: '/about',
         element: <About></About>
-      }, 
+      },
       {
-        path: '/post', 
+        path: '/post',
         element: <Post></Post>
       }
     ]
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AuthProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>,
-  </AuthProvider>
+  <HelmetProvider>
+    <AuthProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>,
+    </AuthProvider>
+  </HelmetProvider>
+
 )

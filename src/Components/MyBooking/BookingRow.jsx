@@ -29,31 +29,31 @@ const BookingRow = ({ book, books, setBooks }) => {
           fetch(`https://hotel-room-server-pi.vercel.app/bookings/${_id}`, {
             method: 'DELETE'
           })
-          .then(res => {
-            if (!res.ok) {
-              throw new Error('Failed to delete booking');
-            }
-            return res.json();
-          })
-          .then(data => {
-            console.log(data);
-            const updatedBooks = books.filter(book => book._id !== _id);
-            setBooks(updatedBooks);
-            Swal.fire({
-              title: "Success!",
-              text: "Booking deleted successfully",
-              icon: "success",
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('Failed to delete booking');
+              }
+              return res.json();
+            })
+            .then(data => {
+              console.log(data);
+              const updatedBooks = books.filter(book => book._id !== _id);
+              setBooks(updatedBooks);
+              Swal.fire({
+                title: "Success!",
+                text: "Booking deleted successfully",
+                icon: "success",
+              });
+            })
+            .catch(error => {
+              console.error('Error deleting booking:', error);
+              // Show an error message to the user
+              Swal.fire({
+                title: "Error!",
+                text: "Failed to delete booking",
+                icon: "error",
+              });
             });
-          })
-          .catch(error => {
-            console.error('Error deleting booking:', error);
-            // Show an error message to the user
-            Swal.fire({
-              title: "Error!",
-              text: "Failed to delete booking",
-              icon: "error",
-            });
-          });
         }
       });
     } else {
@@ -66,7 +66,7 @@ const BookingRow = ({ book, books, setBooks }) => {
     }
   };
   return (
-    <tr>
+    <tr data-aos="fade-up" data-aos-duration="1000">
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">

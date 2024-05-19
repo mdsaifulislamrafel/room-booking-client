@@ -1,8 +1,11 @@
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Map = () => {
     return (
-        <div className="mt-9">
+        <div data-aos="fade-up" data-aos-duration="1000" className="mt-9">
             <h1 className="text-3xl text-center ">You Can Find Us Here</h1>
             <div className="w-[600px] h-[450px] mb-5 mx-auto ">
         <iframe

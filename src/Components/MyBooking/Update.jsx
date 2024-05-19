@@ -16,7 +16,6 @@ const Update = () => {
     const date = form.date.value;
 
     const order = {
-
       date: date
     };
 
@@ -28,20 +27,28 @@ const Update = () => {
       .then((res) => res.json())
       .then(data => {
         console.log(data);
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "Success!",
-            text: "Update Date successful",
-            icon: "success",
-          }).then(() => navigate("/bookings"));
-        }
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'Date updated successfully',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+        // Redirect after showing the toast
+        setTimeout(() => navigate("/bookings"), 3000);
       })
       .catch(error => {
         console.error('Error updating data:', error);
         Swal.fire({
-          title: "Error!",
-          text: "Failed to update date",
-          icon: "error",
+          toast: true,
+          position: 'top-end',
+          icon: 'error',
+          title: 'Failed to update date',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
         });
       });
   };
@@ -49,14 +56,13 @@ const Update = () => {
   return (
     <div>
       <form onSubmit={handleUpdate}>
-      <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Date</span>
-                        </label>
-                        <input type="date" name="date" placeholder="Pick a date" className="input input-bordered" required />
-                    </div>
-
-                    <button className="btn">Update</button>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Date</span>
+          </label>
+          <input type="date" name="date" placeholder="Pick a date" className="input input-bordered" required />
+        </div>
+        <button className="btn">Update</button>
       </form>
     </div>
   );

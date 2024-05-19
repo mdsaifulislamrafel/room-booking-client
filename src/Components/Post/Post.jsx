@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Post = () => {
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const review = { username: user?.displayName, rating, comment  };
+    const review = { username: user?.displayName, rating, comment };
     try {
       const response = await fetch('https://hotel-room-server-pi.vercel.app/reviews', {
         method: 'POST',
@@ -17,7 +18,11 @@ const Post = () => {
         body: JSON.stringify(review)
       });
       if (response.ok) {
-        alert('Review submitted successfully!');
+        Swal.fire({
+          title: "Success!",
+          text: "Review submitted successfully!",
+          icon: "success",
+        })
         setRating(1);
         setComment('');
       } else {

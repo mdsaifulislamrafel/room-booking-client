@@ -8,7 +8,7 @@ const Room = ({ room }) => {
 
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl mt-11 mb-10">
+    <div data-aos="fade-up" data-aos-duration="2000" className="card w-96 bg-base-100 shadow-xl mt-11 mb-10">
       <Link to={`/rooms/${_id}`}>
         <img src={representative_image} className="rounded-lg w-full" alt="Room" />
       </Link>

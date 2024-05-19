@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 const RoomDetails = () => {
   const details = useLoaderData();
@@ -15,6 +16,9 @@ const RoomDetails = () => {
 
   return (
  <div className="flex ard-body hero min-h-screen">
+  <Helmet>
+        <title>Room Details</title>
+      </Helmet>
    <div className="card-body">
       <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row ">

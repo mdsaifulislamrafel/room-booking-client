@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import BookingRow from "./BookingRow";
-
+import { Helmet } from 'react-helmet-async';
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [books, setBooks] = useState([]);
@@ -15,10 +15,12 @@ const MyBooking = () => {
             .catch(error => console.error('Error fetching bookings:', error));
     }, [url]);
 
-console.log(books);
 
     return (
         <div className="overflow-x-auto">
+            <Helmet>
+                <title>My Booking</title>
+            </Helmet>
             <table className="table font-bold">
                 <thead>
                     <tr className="text-2xl text-black">
@@ -34,10 +36,10 @@ console.log(books);
                 </thead>
                 <tbody>
                     {books.map(book => (
-                        <BookingRow 
-                            key={book._id} 
-                            book={book} 
-                            books={books} 
+                        <BookingRow
+                            key={book._id}
+                            book={book}
+                            books={books}
                             setBooks={setBooks}
                         />
                     ))}
