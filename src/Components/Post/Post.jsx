@@ -6,11 +6,12 @@ const Post = () => {
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const { user } = useContext(AuthContext);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const review = { username: user?.displayName, rating, comment };
     try {
-      const response = await fetch('https://hotel-room-server-pi.vercel.app/reviews', {
+      const response = await fetch('http://localhost:5000/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

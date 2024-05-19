@@ -67,20 +67,20 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
 
             if (currentUser) {
-                axios.post('https://hotel-room-server-pi.vercel.app/jwt', loggedUser, {
+                axios.post('http://localhost:5000/jwt', loggedUser, {
                     withCredentials: true
                 })
-                    .then(res => {
-                        console.log("token response", res.data);
-                    })
+                    // .then(res => {
+                    //     console.log("token response", res.data);
+                    // })
             }
             else {
-                axios.post('https://hotel-room-server-pi.vercel.app/logout', loggedUser, {
+                axios.post('http://localhost:5000/logout', loggedUser, {
                     withCredentials: true
                 })
-                    .then(res => {
-                        console.log("logout response", res.data);
-                    })
+                    // .then(res => {
+                    //     console.log("logout response", res.data);
+                    // })
             }
 
         })

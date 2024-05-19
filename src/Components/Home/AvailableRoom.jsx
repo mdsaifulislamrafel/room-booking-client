@@ -36,7 +36,7 @@ const AvailableRoom = () => {
                     </ul>
                 </details>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-5 w-[95%] mx-auto lg:grid-cols-3">
                 {sortedRooms.map(abel => (
                     <Available key={abel._id} abel={abel} />
                 ))}

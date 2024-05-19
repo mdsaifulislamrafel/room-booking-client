@@ -19,7 +19,7 @@ const Update = () => {
       date: date
     };
 
-    fetch(`https://hotel-room-server-pi.vercel.app/bookings/${_id}`, {
+    fetch(`http://localhost:5000/bookings/${_id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(order),
