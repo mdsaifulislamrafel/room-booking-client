@@ -1,13 +1,15 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Post = () => {
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const id = useParams();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +30,7 @@ const Post = () => {
         })
         setRating(1);
         setComment('');
+        navigate('/bookings');
       } else {
         alert('Failed to submit review. Please try again.');
       }

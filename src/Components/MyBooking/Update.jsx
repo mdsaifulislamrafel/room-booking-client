@@ -37,7 +37,7 @@ const Update = () => {
           timerProgressBar: true,
         });
         // Redirect after showing the toast
-        setTimeout(() => navigate("/bookings"), 3000);
+        navigate("/bookings")
       })
       .catch(error => {
         console.error('Error updating data:', error);
