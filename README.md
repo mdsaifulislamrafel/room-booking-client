@@ -1,8 +1,34 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# My Awesome hotel booking room Web side
 
-Currently, two official plugins are available:
+This is the repository for my awesome website.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## 🔗 Links
+Live Link : https://hotels-bookings-room.netlify.app/
+
+
+## Features
+
+- Responsive design
+- User authentication
+- House Details functionality
+- Interactive maps
+- Social media integration
+
+
+
+
+
+## NPM Package Name
+
+ - [AOS](https://github.com/michalsnik/aos)
+ - [hot-toast](https://github.com/timolins/react-hot-toast)
+ - [Animate.css](https://animate.style/)
+ - [React Hook Form](https://react-hook-form.com/)
+ - [daisyui](https://daisyui.com/)
+ - [react-helmet-async](https://www.npmjs.com/package/react-helmet-async)
+ - [React Router](https://reactrouter.com/en/main/start/tutorial)
+ - [Firebase](https://console.firebase.google.com/u/0/)
+ - [react icons](https://react-icons.github.io/react-icons/)
+
