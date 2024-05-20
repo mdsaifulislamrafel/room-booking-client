@@ -26,7 +26,7 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then(data => {
-        console.log(data);
+        
         Swal.fire({
           toast: true,
           position: 'top-end',

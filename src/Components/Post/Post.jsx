@@ -10,10 +10,9 @@ const Post = () => {
   const navigate = useNavigate();
   const id = useParams();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const review = { username: user?.displayName, rating, comment ,id};
+    const review = { username: user?.displayName, rating, comment, postId: id };
     try {
       const response = await fetch('http://localhost:5000/reviews', {
         method: 'POST',

@@ -52,7 +52,7 @@ const BookingRow = ({ book, books, setBooks }) => {
             }
             return res.json();
           })
-          .then(data => {
+          .then(() => {
             const updatedBooks = books.filter(book => book._id !== _id);
             setBooks(updatedBooks);
             Swal.fire({
@@ -97,7 +97,7 @@ const BookingRow = ({ book, books, setBooks }) => {
       <td>{price}</td>
       <td>{date}</td>
       <th>
-        <Link to={`/post/:${id}`}>
+        <Link to={`/post/${id}`}>
           <button className="btn btn-ghost text-3xl">
             <MdOutlinePostAdd />
           </button>

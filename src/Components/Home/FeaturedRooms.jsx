@@ -17,7 +17,7 @@ const FeaturedRooms = () => {
 
     return (
         <div>
-            <h2 className="text-3xl text-center font-bold uppercase bg-300% bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient">Featured Rooms</h2>
+            <h2 className="text-3xl my-8 text-center font-bold uppercase bg-300% bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient">Featured Rooms</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {rooms.map(room => (
                     <Room key={room._id} room={room} />
