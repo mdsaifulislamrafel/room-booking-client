@@ -6,7 +6,7 @@ const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [books, setBooks] = useState([]);
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://hotels-rooms-servers.vercel.app/bookings?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)

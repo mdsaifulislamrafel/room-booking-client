@@ -11,7 +11,7 @@ const BookingRow = ({ book, books, setBooks }) => {
 
 
   const handleAvailable = (roomId) => {
-    fetch(`http://localhost:5000/room-available/${roomId}`, {
+    fetch(`https://hotels-rooms-servers.vercel.app/room-available/${roomId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -20,13 +20,13 @@ const BookingRow = ({ book, books, setBooks }) => {
         availability: 'Available'
       })
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log('Room availability updated:', data);
-    })
-    .catch(error => {
-      console.error('Error updating room availability:', error);
-    });
+      .then(res => res.json())
+      .then(data => {
+        console.log('Room availability updated:', data);
+      })
+      .catch(error => {
+        console.error('Error updating room availability:', error);
+      });
   };
 
   const handleDelete = () => {
@@ -43,33 +43,33 @@ const BookingRow = ({ book, books, setBooks }) => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/bookings/${_id}`, {
+          fetch(`https://hotels-rooms-servers.vercel.app/bookings/${_id}`, {
             method: 'DELETE'
           })
-          .then(res => {
-            if (!res.ok) {
-              throw new Error('Failed to delete booking');
-            }
-            return res.json();
-          })
-          .then(() => {
-            const updatedBooks = books.filter(book => book._id !== _id);
-            setBooks(updatedBooks);
-            Swal.fire({
-              title: "Success!",
-              text: "Booking deleted successfully",
-              icon: "success",
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('Failed to delete booking');
+              }
+              return res.json();
+            })
+            .then(() => {
+              const updatedBooks = books.filter(book => book._id !== _id);
+              setBooks(updatedBooks);
+              Swal.fire({
+                title: "Success!",
+                text: "Booking deleted successfully",
+                icon: "success",
+              });
+              handleAvailable(id);
+            })
+            .catch(error => {
+              console.error('Error deleting booking:', error);
+              Swal.fire({
+                title: "Error!",
+                text: "Failed to delete booking",
+                icon: "error",
+              });
             });
-            handleAvailable(id);
-          })
-          .catch(error => {
-            console.error('Error deleting booking:', error);
-            Swal.fire({
-              title: "Error!",
-              text: "Failed to delete booking",
-              icon: "error",
-            });
-          });
         }
       });
     } else {

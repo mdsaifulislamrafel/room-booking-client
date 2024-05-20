@@ -19,14 +19,14 @@ const Update = () => {
       date: date
     };
 
-    fetch(`http://localhost:5000/bookings/${_id}`, {
+    fetch(`https://hotels-rooms-servers.vercel.app/bookings/${_id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(order),
     })
       .then((res) => res.json())
       .then(data => {
-        
+
         Swal.fire({
           toast: true,
           position: 'top-end',

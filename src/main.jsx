@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: '/rooms/:id',
         element: <PrivateRoute><RoomDetails></RoomDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({ params }) => fetch(`https://hotels-rooms-servers.vercel.app/rooms/${params.id}`)
       },
       {
         path: '/login',
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: 'room/:id',
         element: <PrivateRoute><Booking></Booking></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({ params }) => fetch(`https://hotels-rooms-servers.vercel.app/rooms/${params.id}`)
       },
       {
         path: '/bookings',
@@ -58,12 +58,12 @@ const router = createBrowserRouter([
       {
         path: 'bookings/:id',
         element: <PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+        loader: ({ params }) => fetch(`https://hotels-rooms-servers.vercel.app/bookings/${params.id}`)
       },
       {
         path: '/rooms',
         element: <PrivateRoute><AvailableRoom /></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/unavailable/Available')
+        loader: () => fetch('https://hotels-rooms-servers.vercel.app/unavailable/Available')
       },
       {
         path: '/contact',

@@ -40,7 +40,7 @@ const Booking = () => {
         };
 
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://hotels-rooms-servers.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -62,7 +62,7 @@ const Booking = () => {
     };
 
     const handleUnavailable = (id) => {
-        fetch(`http://localhost:5000/rooms/${id}`, {
+        fetch(`https://hotels-rooms-servers.vercel.app/rooms/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

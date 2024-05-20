@@ -14,7 +14,7 @@ const Post = () => {
     e.preventDefault();
     const review = { username: user?.displayName, rating, comment, postId: id };
     try {
-      const response = await fetch('http://localhost:5000/reviews', {
+      const response = await fetch('https://hotels-rooms-servers.vercel.app/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

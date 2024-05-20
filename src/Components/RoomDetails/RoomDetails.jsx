@@ -19,7 +19,7 @@ const RoomDetails = () => {
   } = details;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review`)
+    fetch(`https://hotels-rooms-servers.vercel.app/review`)
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
@@ -64,23 +64,23 @@ const RoomDetails = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {
               data.length > 0 ?
-              data.map((review) => (
-                <div key={review._id}>
-                  <div className="">
-                    <div className="flex flex-col md:flex-row gap-5">
-                      <div className="space-y-5 border-4 border-emerald-300 p-4">
-                        <p className="py-2 text-xl uppercase font-semibold">User Name : {review.username}</p>
-                        <p className="py-2 text-1xl">Comment : {review.comment}</p>
-                        <Rating
-                          style={{ maxWidth: 180 }}
-                          value={review.rating}
-                          readOnly
-                        />
+                data.map((review) => (
+                  <div key={review._id}>
+                    <div className="">
+                      <div className="flex flex-col md:flex-row gap-5">
+                        <div className="space-y-5 border-4 border-emerald-300 p-4">
+                          <p className="py-2 text-xl uppercase font-semibold">User Name : {review.username}</p>
+                          <p className="py-2 text-1xl">Comment : {review.comment}</p>
+                          <Rating
+                            style={{ maxWidth: 180 }}
+                            value={review.rating}
+                            readOnly
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))  : <p>Review Item No added</p>
+                )) : <p>Review Item No added</p>
             }
           </div>
         </div>
