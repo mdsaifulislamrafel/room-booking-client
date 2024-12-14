@@ -90,6 +90,7 @@ const Booking = () => {
                                 defaultValue={user?.displayName}
                                 className="input input-bordered"
                                 required
+                                readOnly
                             />
                         </div>
                         <div className="form-control">
@@ -103,6 +104,7 @@ const Booking = () => {
                                 defaultValue={user?.email}
                                 className="input input-bordered"
                                 required
+                                readOnly
                             />
                         </div>
                         <div className="form-control">
@@ -114,6 +116,7 @@ const Booking = () => {
                                 defaultValue={'$' + price_per_night}
                                 className="input input-bordered"
                                 required
+                                readOnly
                             />
                         </div>
                         <div className="form-control">

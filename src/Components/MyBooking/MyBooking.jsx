@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import BookingRow from "./BookingRow";
 import { Helmet } from 'react-helmet-async';
+import NoItem from "./NoItem";
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [books, setBooks] = useState([]);
@@ -17,7 +18,8 @@ const MyBooking = () => {
 
 
     return (
-        <div className="overflow-x-auto">
+
+        books.length ? <div className="overflow-x-auto">
             <Helmet>
                 <title>My Booking</title>
             </Helmet>
@@ -29,7 +31,7 @@ const MyBooking = () => {
                         <th>Email</th>
                         <th>Price</th>
                         <th>Date</th>
-                        <th>Post</th>
+                        <th>Review</th>
                         <th>Update</th>
                         <th>Cancel</th>
                     </tr>
@@ -45,7 +47,7 @@ const MyBooking = () => {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </div> : <NoItem />
     );
 };
 
